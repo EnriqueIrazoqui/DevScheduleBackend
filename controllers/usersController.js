@@ -62,7 +62,7 @@ const registerUser = async (req, res) => {
 
       // Si los headers ya se enviaron, solo loguea el error
   } finally {
-      if (conn) conn.release(); // Asegurarse de liberar la conexión
+      if (conn) conn.release(); 
   }
 };
 
