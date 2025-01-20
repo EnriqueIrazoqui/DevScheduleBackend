@@ -1,0 +1,100 @@
+{
+  
+  "name": "devschedulebackend",
+  
+  "version": "1.0.0",
+  
+  "description": "Primer proyecto del equipo MaKeEr",
+  
+  "main": "index.js",
+  
+  "scripts": {
+  
+    
+  "start": "node index.js",
+  
+    
+  "dev": "nodemon index.js"
+  
+  },
+  
+  "repository": {
+  
+    
+  "type": "git",
+  
+    
+  "url": "git+https://github.com/EnriqueIrazoqui/DevScheduleBackend.git"
+  
+  },
+  
+  "keywords": [
+  
+    
+  "backend",
+  
+    
+  "express",
+  
+    
+  "api",
+  
+    
+  "mariadb",
+  
+    
+  "nodejs"
+  
+  ],
+  
+  "author": "MaKeEr",
+  
+  "license": "GPL-3.0-only",
+  
+  "bugs": {
+  
+    
+  "url": "https://github.com/EnriqueIrazoqui/DevScheduleBackend/issues"
+  
+  },
+  
+  "homepage": "https://github.com/EnriqueIrazoqui/DevScheduleBackend#readme",
+  
+  "dependencies": {
+  
+    
+  "bcrypt": "^5.1.1",
+  
+    
+  "dotenv": "^16.4.7",
+  
+    
+  "express": "^4.21.2",
+  
+    
+  "express-validator": "^7.2.1",
+  
+    
+  "jsonwebtoken": "^9.0.2",
+  
+    
+  "mariadb": "^3.4.0",
+  
+    
+  "node-cron": "^3.0.3",
+  
+    
+  "swagger-jsdoc": "^6.2.8",
+  
+    
+  "swagger-ui-express": "^5.0.1"
+  
+  },
+  
+  "devDependencies": {
+  
+    
+  "nodemon": "^3.1.9"
+  
+  }
+}
