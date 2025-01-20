@@ -8,7 +8,7 @@ const authenticateToken = (req, res, next) => {
   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
     if (err) return res.sendStatus(403);
     req.user = user;
-    console.log('Authenticated User:', req.user); // Log adicional
+    console.log('Usuario autenticado:', req.user); // Log adicional
     next();
   });
 };
@@ -16,7 +16,7 @@ const authenticateToken = (req, res, next) => {
 
 const authorizeRoles = (roles) => async (req, res, next) => {
   if (!req.user || !req.user.rol_descripcion) {
-    return res.status(403).json({ message: 'Access denied: User role not found' });
+    return res.status(403).json({ message: 'Acceso denegado: rol de usuario no encontrado' });
   }
 
   try {
@@ -25,11 +25,11 @@ const authorizeRoles = (roles) => async (req, res, next) => {
     if (roles.includes(userRole)) {
       next();
     } else {
-      return res.status(403).json({ message: 'Access denied: Insufficient permissions' });
+      return res.status(403).json({ message: 'Acceso denegado: permisos insuficientes' });
     }
   } catch (error) {
-    console.error('Error while authorizing roles:', error);
-    return res.status(500).json({ message: 'Internal server error' });
+    console.error('Error al autorizar roles:', error);
+    return res.status(500).json({ message: 'Error Interno del Servidor' });
   }
 };
 
