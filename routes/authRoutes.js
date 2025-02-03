@@ -7,6 +7,7 @@ const {
     loginUser,
     registerUser,
     profile,
+    logoutUser,
   } = require("../controllers/usersController");
 
   /**
@@ -157,5 +158,58 @@ router.post('/login', loginUser);
 
 // Ruta protegida para obtener el perfil del usuario
 router.get('/profile', authenticateToken, profile);
+
+/**
+ * @swagger
+ * /auth/logout:
+ *   post:
+ *     summary: Cierra sesión del usuario
+ *     tags: [Authentication]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Logout exitoso
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 ok:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: "Logout exitoso. Elimina el token en el frontend."
+ *       401:
+ *         description: Token faltante o inválido
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 ok:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Acceso denegado. Token no válido o faltante."
+ *       500:
+ *         description: Error interno del servidor
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 ok:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Error interno del servidor"
+ */
+
+
+router.post('/logout', authenticateToken, logoutUser);
 
 module.exports = router;
