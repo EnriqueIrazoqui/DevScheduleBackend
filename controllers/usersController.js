@@ -177,10 +177,26 @@ const profile = async (req, res) => {
   }
 };
 
+const logoutUser = async (req, res) => {
+    try {
+        res.status(200).json({
+            ok: true,
+            message: "Logout exitoso. Elimina el token del frontend."
+        });
+    } catch (error) {
+        console.log("Error en el logout: ", error);
+        res.status(500).json({
+            ok: false,
+            message: "Error interno del servidor."
+        });
+    }
+};
+
 
   module.exports = {
     loginUser,
     registerUser,
     profile,
+    logoutUser,
   };
     
