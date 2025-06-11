@@ -19,9 +19,9 @@ const registerUser = async (req, res) => {
       }
 
       // Verificar si el nombre de usuario ya está registrado
-      const [existingUser] = await conn.query('SELECT * FROM users WHERE userName = ?', [userName]);
+      const existingUsers = await conn.query('SELECT * FROM users WHERE userName = ?', [userName]);
 
-      if (Array.isArray(existingUser) && existingUser.length > 0) {
+      if (existingUsers.length > 0) {
           return res.status(400).json({
               ok: false,
               message: 'El nombre de usuario ya está registrado',
